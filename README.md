@@ -11,13 +11,33 @@ Support jdk version 1.6 or 1.6+
 
 ### How to publish dubbo
 
-* add Dependencies:
+* Download this project
+
+```shell
+$ git clone https://github.com/alibaba/spring-starter-dubbo
+```
+
+* Generate all jars by running this ```$ mvn clean install``` in your Terminal.
+
+* add "spring-boot-starter-parent" dependency（"spring-boot-starter-dubbo" currently rely on 1.3.5.RELEASE）
+```xml
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.3.5.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+```
+
+* add "spring-boot-starter-dubbo" dependency (using local lib due to pom artifact not published yet):
 
 ```xml
     <dependency>
         <groupId>com.alibaba</groupId>
         <artifactId>spring-boot-starter-dubbo</artifactId>
         <version>1.0.0-SNAPSHOT</version>
+        <scope>system</scope>
+        <systemPath>${basedir}/libs/spring-boot-starter-dubbo-1.0.0-SNAPSHOT.jar</systemPath>
     </dependency>
 ```
 * add dubbo configuration in application.properties, demo:
