@@ -11,13 +11,25 @@ Spring Boot with dubbo support. dubbo是一个RPC框架。
 
 ### 如何发布dubbo服务
 
-* 添加依赖:
+* 添加SprintBoot夫项目依赖 （此依赖版本为1.3.5.RELEASE）
+```xml
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.3.5.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+```
+
+* 添加依赖 (使用本地包，因为目前com.alibaba:spring-boot-starter-dubbo:1.0.0-SNAPSHOT maven artifact 未部署):
 
 ```xml
     <dependency>
         <groupId>com.alibaba</groupId>
         <artifactId>spring-boot-starter-dubbo</artifactId>
         <version>1.0.0-SNAPSHOT</version>
+        <scope>system</scope>
+        <systemPath>${basedir}/libs/spring-boot-starter-dubbo-1.0.0-SNAPSHOT.jar</systemPath>
     </dependency>
 ```
 
